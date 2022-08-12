@@ -1,9 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: selenium-srv
+  name: selenium-hub
+  namespace: selenium-ingress
   labels:
-    app: selenium-srv
+    app: selenium-hub
 spec:
   selector:
     app: selenium-hub

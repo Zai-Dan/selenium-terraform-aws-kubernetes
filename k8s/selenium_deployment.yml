@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: selenium-hub
+  namespace: selenium-ingress
 spec:
   selector:
     matchLabels:
@@ -13,17 +14,18 @@ spec:
       maxUnavailable: 0  
   template:
     metadata:
+      namespace: selenium-ingress
       labels:
         app: selenium-hub
     spec:
       containers:
         - name: selenium-hub
-          image: selenium/hub:3.141.59
+          image: selenium/hub:4.4.0
           imagePullPolicy: IfNotPresent
           resources:
             limits:
-              memory: "512Mi"
-              cpu: "500m"
+              memory: "1024Mi"
+              cpu: "1000m"
           ports:
             - name: http
               containerPort: 4444

@@ -2,10 +2,16 @@
 # Provider Configuration
 #
 
-provider "aws" {
-  region  = "us-east-2"
-  version = ">= 2.38.0"
-}
+#provider "aws" {
+#  region  = "us-east-1"
+#  version = ">= 2.38.0"
+#}
+
+#provider "aws" {
+ # source  = "hashicorp/aws"
+ # region  = "us-east-1"
+ # version = "~> 0.13.1"
+#}
 
 # Using these data sources allows the configuration to be
 # generic for any region.
