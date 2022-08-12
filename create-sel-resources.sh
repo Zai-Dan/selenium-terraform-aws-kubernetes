@@ -8,4 +8,4 @@ kubectl create -f k8s/selenium_node.yml
 
 kubectl create -f k8s/cluster-autoscaler.yml
 
-kubectl get pods
+kubectl -n selenium-ingress get pods 

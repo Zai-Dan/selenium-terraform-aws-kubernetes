@@ -6,4 +6,4 @@ kubectl delete -f k8s/selenium_node.yml
 
 kubectl delete -f k8s/cluster-autoscaler.yml
 
-kubectl get pods
+kubectl -n selenium-ingress get pods
