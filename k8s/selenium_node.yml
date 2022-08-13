@@ -1,21 +1,22 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: selenium-hub
-  namespace: selenium-ingress
+  name: selenium-node-chrome
+  namespace: ingress-nginx
 spec:
-  replicas: 3
+  replicas: 1
   selector:
-    app: selenium-chrome
+    matchLabels:
+      app: selenium-chrome
   template:
     metadata:
       name: selenium-chrome
-      namespace: selenium-ingress
+      namespace: ingress-nginx
       labels:
         app: selenium-chrome
     spec:
       containers:
-        - name: selenium-chrome
+        - name: selenium-node-chrome
           image: selenium/node-chrome:104.0
           ports:
             - containerPort: 5555
@@ -26,5 +27,5 @@ spec:
              value: "4444"
           resources:
             limits:
-              memory: "1024Mi"
-              cpu: "1"
+              memory: "512Mi"
+              cpu: "500m"

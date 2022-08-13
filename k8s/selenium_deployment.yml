@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: selenium-hub
-  namespace: selenium-ingress
+  namespace: ingress-nginx
 spec:
   selector:
     matchLabels:
@@ -14,7 +14,7 @@ spec:
       maxUnavailable: 0  
   template:
     metadata:
-      namespace: selenium-ingress
+      namespace: selenium-grid
       labels:
         app: selenium-hub
     spec:
@@ -24,8 +24,8 @@ spec:
           imagePullPolicy: IfNotPresent
           resources:
             limits:
-              memory: "1024Mi"
-              cpu: "1"
+              memory: "512Mi"
+              cpu: "500m"
           ports:
             - name: http
               containerPort: 4444
